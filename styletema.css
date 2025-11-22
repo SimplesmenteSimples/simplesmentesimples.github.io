@@ -1,0 +1,209 @@
+/* Tema claro (padrão) */
+body.light-theme {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+/* Tema escuro */
+body.dark-theme {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+
+
+/* Barra de preferências */
+  .prefs-bar {
+    display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem;
+}
+
+
+
+.switch {
+  /* Variáveis de tamanho e cores do switch */
+  --switch_width: 2em;       /* Largura do switch (o botão inteiro) */
+  --switch_height: 1em;      /* Altura do switch */
+  --thumb_color: #e8e8e8;    /* Cor da bolinha */
+  --track_color: #e8e8e8;    /* Cor da barra quando está desligado */
+  --track_active_color: #888; /* Cor da barra quando está ligado */
+  --outline_color: #000;     /* Cor das bordas e sombras */
+
+  font-size: 17px;           /* Define a base do tamanho (em) do switch */
+  position: relative;        /* Permite posicionar elementos dentro dele */
+  display: inline-block;     /* Faz o switch ficar no fluxo do texto */
+  width: var(--switch_width);   /* Largura usando a variável */
+  height: var(--switch_height); /* Altura usando a variável */
+}
+
+/* Esconde o checkbox padrão do HTML */
+.switch input {
+  opacity: 0;      /* Fica invisível */
+  width: 0;        /* Perde tamanho para não atrapalhar */
+  height: 0;
+}
+
+/* A "trilha" do switch — aquela parte que parece uma barra */
+.slider {
+  box-sizing: border-box;    /* Inclui bordas no cálculo de tamanho */
+  border: 2px solid var(--outline_color);   /* "contorno" da barra */
+  position: absolute;        /* Permite colocar essa camada por cima */
+  cursor: pointer;           /* Mãozinha de botão */
+  top: 0; left: 0; right: 0; bottom: 0; /* Preenche toda a área do switch */
+  background-color: var(--track_color);     /* Cor padrão (desligado) */
+  transition: .15s;          /* Anima suavemente quando muda */
+  border-radius: var(--switch_height);  /* Deixa a barra arredondada */
+}
+
+/* A bolinha do switch (thumb) */
+.slider:before {
+  box-sizing: border-box;
+  position: absolute;
+  content: "";               /* Elemento vazio usado só para visual */
+  height: var(--switch_height);  /* Altura igual à da barra */
+  width: var(--switch_height);   /* Largura igual = vira um círculo */
+  border: 2px solid var(--outline_color);   /* Contorno da bolinha */
+  border-radius: 100%;       /* Deixa perfeitamente redonda */
+  left: -2px;                /* Ajusta posição inicial */
+  bottom: -2px;
+  background-color: var(--thumb_color); /* Cor da bolinha */
+  transform: translateY(-0.2em);        /* Levanta um pouco a bolinha */
+  box-shadow: 0 0.2em 0 var(--outline_color); /* Sombra abaixo dela */
+  transition: .15s;          /* Anima suavemente */
+}
+
+/* Quando o checkbox está marcado, muda a cor da barra */
+input:checked + .slider {
+  background-color: var(--track_active_color); /* Barra ativada */
+}
+
+/* Quando o checkbox está focado pelo teclado */
+input:focus-visible + .slider {
+  box-shadow: 0 0 0 2px var(--track_active_color); /* Anel de foco */
+}
+
+/* Ao passar o mouse, a bolinha levanta um pouquinho */
+input:hover + .slider:before {
+  transform: translateY(-0.3em);         /* Sobe mais */
+  box-shadow: 0 0.3em 0 var(--outline_color);
+}
+
+/* Quando o switch está ligado, mover a bolinha para a direita */
+input:checked + .slider:before {
+  transform: translateX(calc(var(--switch_width) - var(--switch_height)))
+             translateY(-0.2em);        /* Move lateralmente */
+}
+
+/* Quando está ligado E com o mouse por cima */
+input:hover:checked + .slider:before {
+  transform: translateX(calc(var(--switch_width) - var(--switch_height)))
+             translateY(-0.3em);        /* Bolinha sobe mais */
+  box-shadow: 0 0.3em 0 var(--outline_color);
+}
+
+#themeLabel {
+  font-family: "Cal Sans", sans-serif;
+}
+
+span {
+  font-family: "Cal Sans", sans-serif;
+  font-size: 20px;
+}
+
+/* Animação do botão */ 
+#logout {
+  display: inline-block;
+  padding: 12px 24px;
+  border: 1px solid #ffffff;
+  border-radius: 8px;
+  transition: all 0.2s ease-in;
+  position: relative;
+  overflow: hidden;
+  font-size: 19px;
+  cursor: pointer;
+  color: black;
+  z-index: 1;
+}
+
+#logout:before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%) scaleY(1) scaleX(1.25);
+  top: 100%;
+  width: 140%;
+  height: 180%;
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 50%;
+  display: block;
+  transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
+  z-index: -1;
+}
+
+#logout:after {
+  content: "";
+  position: absolute;
+  left: 55%;
+  transform: translateX(-50%) scaleY(1) scaleX(1.45);
+  top: 180%;
+  width: 160%;
+  height: 190%;
+  background-color: #ff4111;
+  border-radius: 50%;
+  display: block;
+  transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
+  z-index: -1;
+}
+
+#logout:hover {
+  color: #ffffff;
+  border: 1px solid #39bda7;
+}
+
+#logout:hover:before {
+  top: -35%;
+  background-color: #39bda7;
+  transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
+}
+
+#logout:hover:after {
+  top: -45%;
+  background-color: #39bda7;
+  transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
+}
+
+#theme {
+    transform: translateY(340px);
+    background-color: rgb(233, 233, 233);
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 650px;
+    margin: auto;
+    box-shadow: 0 3px 22px rgba(0, 0, 0, 0.18);
+}
+
+
+body.light-theme #theme {
+  background-color: rgb(65, 65, 65);
+  color: #ffffff;
+  box-shadow: 0 3px 22px rgba(0, 0, 0, 0.18);
+}
+
+
+body.dark-theme #theme {
+  background-color: rgb(255, 255, 255);
+  color: #030303;
+  box-shadow: 0 6px 28px rgba(0, 0, 0, 0.6);
+}
+
+#theme.dark-theme {
+    transform: translateY(340px);
+    background-color: rgb(255, 0, 0);
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 650px;
+    margin: auto;
+    box-shadow: 0 3px 22px rgba(0, 0, 0, 0.18);
+}

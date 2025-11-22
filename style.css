@@ -1,0 +1,123 @@
+body {
+  background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  position: relative;
+  margin: 10%;
+}
+
+
+.form {
+    background-color: rgb(255, 255, 255);
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 650px;
+    margin: auto;
+    box-shadow: 0 3px 22px rgba(0, 0, 0, 0.18);
+}
+
+h1 {
+transform: translateY(-22px);
+  color: rgb(0, 0, 0);
+  font-family: "Cal Sans", sans-serif;
+  font-size: 40px;
+  text-align: center;
+}
+p {
+transform: translateY(-11px);
+text-align: center;  
+  color: rgb(0, 0, 0);
+  font-family: "Domine", serif;
+  font-size: 20px;
+}
+
+label {
+  display: block; 
+  width: fit-content;
+  margin: 0 auto;
+  color: rgb(0, 0, 0);
+  font-family: "Domine", serif;
+  font-size: 20px;
+}
+
+/* Centralizar inputs de texto e senha e manter largura responsiva */
+input[type="text"],
+input[type="password"],
+input[type="email"],
+textarea,
+select {
+  display: block;
+  width: 60%;
+  max-width: 420px;
+  margin: 0.5rem auto;
+  padding: 8px 10px;
+  box-sizing: border-box;
+}
+
+
+
+button{
+transform: translateX(375px);
+
+}
+
+/* Animação do botão */ 
+.button {
+  display: inline-block;
+  padding: 12px 24px;
+  border: 1px solid #ffffff;
+  border-radius: 8px;
+  transition: all 0.2s ease-in;
+  position: relative;
+  overflow: hidden;
+  font-size: 19px;
+  cursor: pointer;
+  color: black;
+  z-index: 1;
+}
+
+.button:before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%) scaleY(1) scaleX(1.25);
+  top: 100%;
+  width: 140%;
+  height: 180%;
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 50%;
+  display: block;
+  transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
+  z-index: -1;
+}
+
+.button:after {
+  content: "";
+  position: absolute;
+  left: 55%;
+  transform: translateX(-50%) scaleY(1) scaleX(1.45);
+  top: 180%;
+  width: 160%;
+  height: 190%;
+  background-color: #ff4111;
+  border-radius: 50%;
+  display: block;
+  transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
+  z-index: -1;
+}
+
+.button:hover {
+  color: #ffffff;
+  border: 1px solid #39bda7;
+}
+
+.button:hover:before {
+  top: -35%;
+  background-color: #39bda7;
+  transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
+}
+
+.button:hover:after {
+  top: -45%;
+  background-color: #39bda7;
+  transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
+}
+
